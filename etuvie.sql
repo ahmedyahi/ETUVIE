@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 31, 2021 alle 19:05
+-- Creato il: Apr 06, 2021 alle 18:38
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.1
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `etuvie`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `avis`
+--
+
+CREATE TABLE `avis` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `ville` varchar(25) NOT NULL,
+  `text` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `avis`
+--
+
+INSERT INTO `avis` (`id`, `username`, `ville`, `text`) VALUES
+(0, 'nadia7', 'Aix', 'ville petite , calme et tranquille, climat parfait'),
+(4165, 'nadia7', 'Grenoble', 'Ville parfaite pour qui aime etre entouré par les montaignes');
 
 -- --------------------------------------------------------
 
@@ -246,6 +267,32 @@ INSERT INTO `meteo` (`Ville`, `Temp_min`, `Temp_max`, `Pluviometrie`, `Ensoleill
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `preferes`
+--
+
+CREATE TABLE `preferes` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `pref` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `preferes`
+--
+
+INSERT INTO `preferes` (`id`, `username`, `ville`, `pref`) VALUES
+(4931, 'nadia7', 'Montpellier', 1),
+(244, 'Luc9', 'Montpellier', 1),
+(8474, 'Luc9', 'Nice', 1),
+(5955, 'Julie22', 'Lyon', 1),
+(5976, 'Julie22', 'Nice', 1),
+(7752, 'nadia7', 'Nice', 1),
+(986, 'nadia7', 'Aix', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `securite`
 --
 
@@ -452,6 +499,31 @@ INSERT INTO `transport` (`Ville`, `nombre_arrets`, `prix/an`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struttura della tabella `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(50) NOT NULL,
+  `nom` varchar(25) NOT NULL,
+  `prenom` varchar(25) NOT NULL,
+  `numero` varchar(10) NOT NULL,
+  `adresse` varchar(50) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `mdp` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `user`
+--
+
+INSERT INTO `user` (`username`, `nom`, `prenom`, `numero`, `adresse`, `mail`, `mdp`) VALUES
+('Julie22', 'Pirano', 'Julie', '0725431283', '9 rue Raimond', 'julie.pirano@gmail.com', 'salut'),
+('Luc9', 'Vigne', 'Luc', '0722195422', '19 rue napoleon', 'luc.vigne@gmail.com', 'monde'),
+('nadia7', 'romagnoni', 'nadia', '345443740', 'rue Henri Réné 32', 'nadia.romagnoni@gmail.com', 'ginevra');
+
+-- --------------------------------------------------------
+
+--
 -- Struttura della tabella `villes`
 --
 
@@ -461,30 +533,47 @@ CREATE TABLE `villes` (
   `Habitants` int(7) DEFAULT NULL,
   `Dep` int(2) DEFAULT NULL,
   `Prop_dEtudiant` int(6) DEFAULT NULL,
-  `url_photo` varchar(27) DEFAULT NULL
+  `url_photo` varchar(27) DEFAULT NULL,
+  `noteTemp` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `villes`
 --
 
-INSERT INTO `villes` (`Ville`, `Superficie`, `Habitants`, `Dep`, `Prop_dEtudiant`, `url_photo`) VALUES
-('Aix', '186.1', 146282, 13, 37305, 'images/aix_en_provence.jpg'),
-('Bordeaux', '49.4', 260352, 33, 132604, 'images/bordeaux.jpg'),
-('Clermont-Ferrand', '42.7', 149464, 63, 47457, 'images/clermont_ferrand.jpg'),
-('Grenoble', '18.1', 159855, 38, 95295, 'images/grenoble.jpg'),
-('Lille', '34.8', 235189, 59, 179126, 'images/lille.jpg'),
-('Lyon', '47.9', 525236, 69, 199860, 'images/lyon.jpg'),
-('Marseille', '240.6', 874619, 13, 109684, 'images/marseille.jpg'),
-('Montpellier', '56.9', 293410, 34, 112031, 'images/montpellier.jpg'),
-('Nancy', '15.0', 106330, 54, 84123, 'images/nancy.jpg'),
-('Nantes', '65.2', 319284, 44, 46826, 'images/nantes.jpg'),
-('Nice', '71.9', 343889, 6, 61629, 'images/nice.jpg'),
-('Paris', '105.4', 2175601, 75, 352588, 'images/paris.jpg'),
-('Rennes', '50.4', 221898, 35, 128567, 'images/rennes.jpg'),
-('Strasbourg', '78.3', 287532, 67, 81034, 'images/strasbourg.jpg'),
-('Toulouse', '118.3', 479553, 31, 118000, 'images/toulouse.jpg'),
-('Tours', '34.4', 139230, 37, 30412, 'images/tours.jpg');
+INSERT INTO `villes` (`Ville`, `Superficie`, `Habitants`, `Dep`, `Prop_dEtudiant`, `url_photo`, `noteTemp`) VALUES
+('Aix', '186.1', 146282, 13, 37305, 'images/aix_en_provence.jpg', 30.5714),
+('Bordeaux', '49.4', 260352, 33, 132604, 'images/bordeaux.jpg', 16),
+('Clermont-Ferrand', '42.7', 149464, 63, 47457, 'images/clermont_ferrand.jpg', 17.2857),
+('Grenoble', '18.1', 159855, 38, 95295, 'images/grenoble.jpg', 13.5714),
+('Lille', '34.8', 235189, 59, 179126, 'images/lille.jpg', 11.7143),
+('Lyon', '47.9', 525236, 69, 199860, 'images/lyon.jpg', 13.8571),
+('Marseille', '240.6', 874619, 13, 109684, 'images/marseille.jpg', 25.8571),
+('Montpellier', '56.9', 293410, 34, 112031, 'images/montpellier.jpg', 19),
+('Nancy', '15.0', 106330, 54, 84123, 'images/nancy.jpg', 11.7143),
+('Nantes', '65.2', 319284, 44, 46826, 'images/nantes.jpg', 16.8571),
+('Nice', '71.9', 343889, 6, 61629, 'images/nice.jpg', 16.7143),
+('Paris', '105.4', 2175601, 75, 352588, 'images/paris.jpg', 12),
+('Rennes', '50.4', 221898, 35, 128567, 'images/rennes.jpg', 15.2857),
+('Strasbourg', '78.3', 287532, 67, 81034, 'images/strasbourg.jpg', 17.8571),
+('Toulouse', '118.3', 479553, 31, 118000, 'images/toulouse.jpg', 0),
+('Tours', '34.4', 139230, 37, 30412, 'images/tours.jpg', 14.2857);
+
+--
+-- Indici per le tabelle scaricate
+--
+
+--
+-- Indici per le tabelle `avis`
+--
+ALTER TABLE `avis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
