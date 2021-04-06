@@ -15,7 +15,7 @@
 				$i++;
 			}
 			$securite=$securite/100;
-			if($securite>172 & $securite<=1001){ $nsecurite=10;}
+			if($securite>171 & $securite<=1001){ $nsecurite=10;}
 			else if($securite>1001 & $securite<=1830){ $nsecurite=9;}
 			else if($securite> 1830 & $securite<=2659){ $nsecurite=8;}
 			else if($securite>2659&  $securite<=3488){ $nsecurite=7;}
