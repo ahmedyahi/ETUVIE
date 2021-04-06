@@ -1,3 +1,6 @@
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
     <html>
     <head classe = "header">
@@ -55,11 +58,12 @@
 					
                     </tr>
 					</form>
+					</table>
                     <div id="menu_pied">
                     <?php include ("menu.php");?>
-                    </div>
+                </div>
 
-            <?php include ("foot2.php");?>
+            <?php include ("foot3.php");?>
 
 
     </body>

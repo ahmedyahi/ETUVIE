@@ -5,51 +5,8 @@
     <html>
     <head classe = "header">
 	<title>Fiche ville</title>
-    <link rel="stylesheet" href="styleH.css" type="text/css" media="screen" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style type="text/css">
-		.tde{
-			height:20px;
-			width:20px;
-			cursor:pointer;
-			}
-	    #glob {display: flex;}
-		table{
-			margin-top:0px;
-		}
-		#graph{
-			display:block;
-			margin:auto;
-			position:relative;
-			float:right;
-			
-			
-		}
-		#note{
-			display:inline-block;
-			position:relative;
-			width:30px;
-			border:0;
-			background-color:#115A83;
-			color:white;
-			font-size:20px;
-			border-radius: 10px;
-		}
-		#ville{
-			height:150px;
-			width:150px;
-			border-radius:60px;
-			margin-top:20px;
-	
-		}
-		
-		.compa{
-			display:inline;
-		}
-		
-	
-	</style>   
-
+    <link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
     </head>
        <body>
 
@@ -58,7 +15,6 @@
 		<?php
 			$Ville1= $_GET["Ville1"];
 			$Ville2= $_GET["Ville2"];
-			//$Ville="Montpellier";
 			include('bd.php'); 
 			$bdd = getBD();	
 			$rep=$bdd->query('select * from villes where Ville=\''.$Ville1.'\''); 
@@ -88,7 +44,7 @@
 		 
 		</div>
 		<div class="compa">
-		<table class='table_formulaire'>
+		<table class='table_compa'>
 		     <thead>
                     <tr>
                         <th><img id="ville" src= <?php echo  $ligne["url_photo"];?> alt="Image ville"  /></th>
@@ -98,19 +54,9 @@
                 <tbody>
                     <tr>
                         <th> 	<?php echo $ligne["Ville"]; ?> 
-			<div style="display:inline-block;position:relative;width:100px;">
-			<div style="height:20px; width: <?=$value1;?>px; background:#E0E001;" >
-				
-				<div id="glob">
-				
-					<img id="tde_1" src="star.png" alt="image etoiles" class="tde" />
-					<img id="tde_2" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_3" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_4" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_5" src="star.png" alt="image etoiles" class="tde"/>
-				</div>
-			</div>
-		</div>
+			<?php include 'etoiles.php';
+					 etoiles($value1);
+				?>
 		
 		<div id="note">
         <?php $note=($culture+$sport+$crous+$meteo+$transport+$securite+$loyer)/7;
@@ -118,6 +64,7 @@
 			echo $note;
 			?>
 			</div>
+			 <?php echo "  <a  class = 'bouton_avis' href='lectureAvis.php?Ville=".$ligne["Ville"]."' >" ?> Lire les avis </a>
 		</th> 
 		<th> 	<?php echo $ligne1["Ville"]; ?> 
 		<?php
@@ -133,19 +80,9 @@
 			include 'graphe2.php';
 		
 		?>
-			<div style="display:inline-block;position:relative;width:100px;">
-			<div style="height:20px; width: <?=$value2;?>px; background:#E0E001;" >
-				
-				<div id="glob">
-				
-					<img id="tde_1" src="star.png" alt="image etoiles" class="tde" />
-					<img id="tde_2" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_3" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_4" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_5" src="star.png" alt="image etoiles" class="tde"/>
-				</div>
-			</div>
-		</div>
+			 <?php 
+				etoiles($value2);
+				?>
 
 		<div id="note">
         <?php $note2=($culture1+$sport1+$crous1+$meteo1+$transport1+$securite1+$loyer1)/7;
@@ -153,16 +90,17 @@
 			echo $note2;
 			?>
 			</div>
+			 <?php echo "  <a  class = 'bouton_avis' href='lectureAvis.php?Ville=".$ligne["Ville"]."' >" ?> Lire les avis </a>
 		</th> 
 		</tr>
-		 
+		
 			<tr>
 		<th>
 		<?php
 
 			include 'graph_ficheVille.php';
 			if(file_exists("graph_ficheVille.jpg")) {
-			unlink("graph_ficheVille.jpg");
+				unlink("graph_ficheVille.jpg");
 			}
 			GenerateGraph($culture,$sport,$crous,$meteo,$transport,$securite,$loyer);
 		?>		<img id="graph" src="graph_ficheVille.jpg" />	</th>
@@ -180,7 +118,9 @@
 		
 			
 		</div>
-
+	 <div id="menu_pied">
+                    <?php include ("menu.php");?>
+                    </div>
 		<?php include ("foot2.php");?>
         </body>
     </html>
