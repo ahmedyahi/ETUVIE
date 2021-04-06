@@ -1,74 +1,38 @@
-<?php 
-	session_start();
-?>
+<?php
+ session_start();
+ ?>
 
     <html>
     <head classe = "header">
 	<title>Fiche ville</title>
-    <link rel="stylesheet" href="styleH.css" type="text/css" media="screen" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style type="text/css">
-		.tde{
-			height:20px;
-			width:20px;
-			cursor:pointer;
-			}
-	    #glob {display: flex;}
-		table{
-			margin-top:0px;
-			text-align:center;
-		}
-		#graph{
-			display:block;
-			margin:auto;
-			position:relative;
-			float:right;
-			
-			
-		}
-		#note{
-			display:inline-block;
-			position:relative;
-			width:30px;
-			border:0;
-			background-color:#115A83;
-			color:white;
-			font-size:20px;
-			border-radius: 10px;
-		}
-		#ville1{
-			width:680px;
-			height:250px;
-			border-radius:60px;
-			margin-top:20px;
-	
-		}
-		
-		.compa1{
-			display:table;
-			margin:auto;
-			top:20%;
-			bottom:20%;
-			position:center;
-		}
-		
-	
-	</style>   
-
+    <link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
     </head>
        <body>
 
-		 
-        <?php include ("head2.php");?>	
+		  <?php include ("head2.php");?>	
+       
 		<?php
 			$Ville= $_GET["Ville"];
-			
 			include('bd.php'); 
 			$bdd = getBD();	
-			$rep=$bdd->query('select * from villes where Ville=\''.$Ville.'\''); 
+			$rep=$bdd->query('select * from villes where Ville=\''.$Ville.'\'');
+			$rep1=$bdd->query('select * from villes '); 			
 			$ligne=$rep->fetch();
 		
 		?>
+		<div id="search">
+		<form method="GET" action="fiche_ville.php"  autocomplete="off">
+			  <select name="Ville">
+			  <?php 
+					while($ligne1=$rep1->fetch()){
+						echo "<option>". $ligne1["Ville"]."</option>";
+					}
+				
+				 ?> 
+			</select>
+			  <input type="submit" value="Rechercher" class = 'bouton_submit'/>
+	   </form>
 		<?php
 			include 'note_culture.php';
 			include 'note_sport.php';
@@ -90,28 +54,19 @@
 		 
 		</div>
 		<div class="compa1">
-		<table >
+		<table class="table_fiche">
 		     <thead>
                     <tr>
                         <th><img id="ville1" src= <?php echo  $ligne["url_photo"];?> alt="Image ville"  /></th>
                     </tr>
                 </thead>
-                <tbody>
+             
                     <tr>
                         <th> 	<?php echo $ligne["Ville"]; ?> 
-			<div style="display:inline-block;position:relative;width:100px;">
-			<div style="height:20px; width: <?=$value1;?>px; background:#E0E001;" >
-				
-				<div id="glob">
-				
-					<img id="tde_1" src="star.png" alt="image etoiles" class="tde" />
-					<img id="tde_2" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_3" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_4" src="star.png" alt="image etoiles" class="tde"/>
-					<img id="tde_5" src="star.png" alt="image etoiles" class="tde"/>
-				</div>
-			</div>
-		</div>
+						
+				<?php include 'etoiles.php';
+					 etoiles($value1);
+				?>
 		
 		<div id="note">
         <?php $note=($culture+$sport+$crous+$meteo+$transport+$securite+$loyer)/7;
@@ -119,6 +74,18 @@
 			echo $note;
 			?>
 			</div>
+			 <?php echo "  <a  class = 'bouton_avis' href='lectureAvis.php?Ville=".$ligne["Ville"]."' >" ?> Lire les avis </a>
+			 <?php
+			 if (isset($_SESSION['users'])){ 
+					if(isset($_GET['tmp'])){
+						
+						echo "  <a  class = 'bouton_preferes' href='elimPref.php?id=".$_GET['id']."&ville=".$ligne["Ville"]."' >" ?>   Eliminer des mes préférés.</a>
+					<?php }
+					
+					if(!isset($_GET['tmp']) || !$_GET['tmp']){
+						echo "  <a  class = 'bouton_preferes' href='ajoutPref.php?ville=".$ligne["Ville"]."' >" ?>   Ajouter à mes préférés.</a> 
+				<?php	}
+			} ?>
 		</th>  
 			
 			</div> 
@@ -128,7 +95,7 @@
 		<?php
 			include 'graph_ficheVille.php';
 			if(file_exists("graph_ficheVille.jpg")) {
-			unlink("graph_ficheVille.jpg");
+				unlink("graph_ficheVille.jpg");
 			}
 			GenerateGraph($culture,$sport,$crous,$meteo,$transport,$securite,$loyer);
 		?>		<img id="graph" src="graph_ficheVille.jpg" />	</th>
@@ -137,8 +104,12 @@
 		
 			
 		</div>
-	<div>
+		
+	 <div id="menu_pied">
+                    <?php include ("menu.php");?>
+                    </div>
+		
 		<?php include ("foot2.php");?>
-		</div>
         </body>
+		
     </html>
