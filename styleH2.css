@@ -1,0 +1,555 @@
+/*--------------------------------------------General*/
+*{
+margin: 0;
+padding: 0;
+}
+/* -----------------------------------------------------------------------Style Head*/
+.header{
+	display: block;
+	width: 100%;
+	height: 4em;
+	position: fixed;
+	background-color: #115A83;
+	top: 0;
+	overflow: hidden;
+	position: sticky;
+	overflow: hidden;
+	z-index:1;
+}
+
+
+.ident{
+	display: block;
+    position: absolute;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center right;
+    right: 10px;
+}
+
+.ident a {
+
+/*text-decoration: none;*/
+color: white;
+padding: 10px;
+
+}
+
+
+.logo img{
+	padding: 0.5em;
+	display: inline;
+	border-radius: 100px;
+	height: 3em;
+	width: 3em;
+	left: 10px;
+	position: absolute;
+
+}
+
+.ident2{
+	display: inline;
+    position: absolute;
+		height: 2em;
+		width:18em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center right;
+    right: 10px;
+
+}
+.bienvenue{
+
+	display:inline;
+	height: 4em;
+	width: 14em;
+	
+
+}
+/* -----------------------------------------------------------------------Style Foot*/
+.footer{
+		background-color: #115A83;
+		position: sticky;
+		border: 1px solid #115A83;
+		padding-top:1em;
+		width: 100%;
+		bottom:0;
+		height:4em;
+		display:block;
+		z-index:1;
+}
+.footer1{
+		background-color: #115A83;
+		position: fixed;
+		border: 1px solid #115A83;
+		padding-top:1em;
+		width: 100%;
+		bottom:0;
+		height:4em;
+		display:block;
+		z-index:1;
+}
+.footer ul{
+		text-align: center;
+        padding-top:0;
+		list-style-type:none;
+}
+
+.footer ul a {
+	     padding-top:0;
+		text-decoration: none;
+		color: white;
+
+
+}
+.footer1 ul{
+		text-align: center;
+        padding-top:0;
+		list-style-type:none;
+}
+
+.footer1 ul a {
+	 padding-top:0;
+		text-decoration: none;
+		color: white;
+
+
+}
+
+
+/* -----------------------------------------------------------------------Style Menu*/
+
+
+.menu_bouton{
+
+
+
+	border: solid .125em transparent;
+	padding: 0;
+	width: 8.5em; height:2em ;
+	border-radius: 1em;
+	color: #fff;
+    font: Condensed;
+    font-family: Arial;
+    font-size: 20px;
+	filter: contrast(.65);
+    border-radius: 0.5em;
+    box-shadow: inset 0 1px 1px #9c9c9c;
+    background-color: #115A83
+	}
+
+.position_menu {
+
+	position:sticky;
+	left:350px;
+	bottom:140px;
+    display:block;
+    z-index:1;
+	text-align:center; 
+	margin-top:50px;
+
+	}
+	.position_menu2 {
+
+	position:sticky;
+	left:350px;
+	bottom:100px;
+    display:block;
+    z-index:1;
+	text-align:center; 
+	margin-top:200px;
+
+	}
+
+.liens_formulaire {
+
+		text-decoration: none;
+		color: #fff;
+
+	}
+/*  -----------------------------------------------------------------------Style formulaire d'incription*/
+
+.formulaire{
+
+    display: block;
+    margin-right:auto;
+    margin-left:auto;
+    background-color:blue ;
+}
+
+/*  -----------------------------------------------------------------------Style Classement*/
+
+.tableau{
+	margin: 20px;
+}
+
+.classement{
+	border-collapse: collapse;
+	border-spacing:2em;
+	width : 80%;
+	margin-left : auto;
+	margin-right :auto;
+	padding: 5em;
+	background-color: #FFEDED;
+
+}
+
+.classement th, td {
+	padding: 20px;
+	color: white;
+
+
+}
+.classement a{
+	text-decoration: none;
+	color: white;
+	}
+
+
+.classement th{
+	text-align: center;
+
+	background-color: #115A83;
+	}
+
+.classement tr{
+	background-color: #A4AFCC;
+	}
+
+.classement .nom{
+	text-align:center;
+	width: 30%;
+
+}
+.classement .image{
+	text-align:center;
+	width: 5%;
+
+}
+.classement .info{
+	text-align: right;
+	width: 50%;
+
+
+}
+
+.classement .note{
+	text-align: center;
+	width: 15%;
+
+}
+
+
+/*------------------------------------------------------------------Page Comparaison*/
+ #graphique_comparaison{
+	border:1px solid red;
+	width:400px;
+	position:relative;
+	border:1px solid #e5ddd5;
+	padding:5px;
+    background-color: #115A83;
+
+}
+
+#criteres{
+	position:relative;
+	left:100px;
+	width:300px;
+	margin-top:1px;
+
+}
+#criteres_name{
+	position:absolute;
+	left:-100px;
+	width:100px;
+	border:1px solid #cccccc;
+	border-left:none;
+	border-right:none;
+	font-weight:bold;
+}
+#note{
+	position:relative;
+	left:0px;
+	top:0px;
+	border:1px solid #000;
+	text-align:right;
+	font-size:0.9em;
+	padding-right:0.2em;
+	padding-left:-0.2em;
+}
+
+/*------------------------------------------------------------------formulmaire _selection*/
+
+.table_formulaire{
+
+    display: table;
+    width: 30%;
+    height: 40%;
+    margin:50px auto;
+    top:  20%;
+    bottom: 20%;
+    padding: 15px;
+    border: 1rem solid;
+    border-color:#115A83;
+    background-color: #9c9c9c ;
+    opacity: 0.8 ;
+	text-align:center;
+}
+th{
+
+    align-self: center;
+    padding: 0;
+    border: 20px  ;
+    border-style:solid ;
+    margin:auto;
+    border-color:#115A83;
+    border-width: 2px
+ }
+
+ .bouton_submit{
+
+     position:relative;
+     margin-left: auto;
+     margin-right: auto;
+     border: solid .125em transparent;
+     padding: 0;
+     width: 6.375em; height: 1.5em ;
+     border-radius: 1em;
+     color: #fff;
+     font: Condensed;
+     font-family: Arial;
+     font-size: 20px;
+     filter: contrast(.65);
+     border-radius: 0.5em;
+     box-shadow: inset 0 1px 1px #9c9c9c;
+     background-color: #115A83;
+	 cursor:pointer;
+	
+
+ }
+.bouton_avis{
+			position:relative;
+			margin-left: 50;
+			margin-right: auto;
+			border: solid .125em transparent;
+			padding: 0;
+			width: 6.375em; height: 1.5em ;
+			border-radius: 1em;
+			color: white;
+			font: Condensed;
+			font-family: Arial;
+			font-size: 17px;
+			border-radius: 0.5em;
+			box-shadow: inset 0 1px 1px #9c9c9c;
+			background-color: #115A83
+			
+			
+		}
+		.bouton_donnerAvis{
+			position:relative;
+			margin-left: 100px;
+			margin-top:100px;
+			border: solid .125em transparent;
+			
+			width: 6.375em; height: 1.5em ;
+			border-radius: 1em;
+			color: white;
+			font: Condensed;
+			font-family: Arial;
+			font-size: 17px;
+			border-radius: 0.5em;
+			box-shadow: inset 0 1px 1px #9c9c9c;
+			background-color: #115A83;
+			
+		}
+/* -----------------------------------------------------------------------Accueil*/
+
+#search {
+	margin-left: 600px;
+
+	padding-top:10px;
+
+ 
+
+}
+#corps {
+	margin:auto;
+
+	padding-top:20px;
+}
+
+#slide_images{
+	margin-top: 20px;
+
+}
+.slider{
+  width: 500px;
+  height:300px;
+  overflow:hidden;
+  margin:auto;
+ 
+ 
+
+}
+.slides {
+	width: 8000px;
+	animation: glisse 66s ease 2s infinite;
+	text-align:center;
+	position:center;
+		
+}
+.slide{
+	float:left;
+	
+
+}
+
+
+@keyframes glisse {
+	from,6%  {margin-left: 0px;}
+	6%,12%   {margin-left:-500px;}
+	12%,18%   {margin-left:-1000px;}
+	18%,24%   {margin-left:-1500px;}
+	24%,30%   {margin-left:-2000px;}
+	30%,36%  {margin-left:-2500px;}
+	36%,42%  {margin-left:-3000px;}
+	42%,48% {margin-left:-3500px;}
+	48%,54%  {margin-left:-4000px;}
+	54%,60% {margin-left:-4500px;}
+	60%,66% {margin-left:-5000px;}
+	66%,72% {margin-left:-5500px;}
+	72%,78% {margin-left:-6000px;}
+	78%,84% {margin-left:-6500px;}
+	84%,90% {margin-left:-7000px;}
+	90%,to {margin-left:-7500px;}
+
+
+
+}
+#pied{
+	border: 1px solid black;
+	margin: auto;
+	height: 100px;
+	}
+
+#exemple1 {
+
+ height:50px;
+ margin-top:3%;
+ margin-left: 20%;
+ margin-right: 20%;
+ border: 1px solid black;
+ background-color:#115A83;
+ border-radius: 0.8em;
+
+}
+#exemple2 {
+
+ height:50px;
+ margin-top:1%;
+ margin-left: 20%;
+ margin-right: 20%;
+ border: 1px solid black;
+ background-color:#115A83;
+ border-radius: 0.8em;
+
+}
+#exemple3 {
+
+ height:50px;
+ margin-top:1%;
+ margin-left: 20%;
+ margin-right: 20%;
+ border: 1px solid black;
+ background-color:#115A83;
+ border-radius: 0.8em;
+
+}
+
+#menu_pied{
+
+	 padding-top: 0%;
+	 margin-bottom: 25px;
+}
+.comparateur{
+	 display:inline-block;
+	 width:50%;
+	 
+	
+}
+.table{
+	
+	border-style:none;
+	
+}
+
+/* Etoiles   */
+.tde{
+			height:20px;
+			width:20px;
+			cursor:pointer;
+			}
+#glob {display: flex;}
+
+#note{
+			display:inline-block;
+			position:relative;
+			width:30px;
+			border:0;
+			background-color:#115A83;
+			color:white;
+			font-size:20px;
+			border-radius: 10px;
+}
+
+		
+/* page fiche ville */
+.table_fiche{
+	margin-top:0px;
+	text-align:center;
+	border-style:none;
+}
+#graph{
+	display:block;
+	margin:auto;
+	position:relative;
+	float:right;
+}
+#ville1{
+	width:680px;
+	height:250px;
+	border-radius:60px;
+	margin-top:20px;
+}
+.compa1{
+	display:table;
+	margin:auto;
+	top:20%;
+	bottom:20%;
+	position:center;
+	border-style:none;
+}
+	
+/*page comparateur */	
+.table_compa{
+	margin-top:0px;
+	border-width:0;
+	border-style:none;
+}
+#ville{
+	height:150px;
+	width:150px;
+	border-radius:60px;
+	margin-top:20px;
+}
+.compa{
+	display:inline;
+}
+/*titres tables*/
+.titres{
+	text-align:center;
+	font-size:22px;
+	font-style:bold;
+}
+		
+		
