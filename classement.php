@@ -1,49 +1,16 @@
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
     <html>
     <head classe = "header">
     <link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- <style type="text/css">
-		.titres{
-			text-align:center;
-			font-size:22px;
-			font-style:bold;
-		}
-		
-		#ville{
-			height:150px;
-			width:150px;
-			border-radius:60px;
-			margin-top:20px;
-	
-		}
-	</style>	
+ 	
     </head>
         <body>
-
-          <div class="header">
-
-
-            <div class = "ident">
-            <form action="connecter.php" method="GET" autocomplete="off">
-              <?php
-                      if (isset($_SESSION['clients'])){
-                        echo"Bienvenus dans votre espace personnel";
-
-              		  echo $_SESSION['clients'][0];
-              		  echo " ";
-              	      echo $_SESSION['clients'][1];
-                        echo " ";
-              	      echo'<a href="deconnexion.php">Deconnexion</a>';
-              	         }
-                ?>
-            </form>
-             </div>
-            <div class="logo">
-                <img src="etuvie.jpg" alt="" />
-             </div>
-        </div>
-    </div>
+<?php include ("head2.php");?>	
+         
 	
 		<?php
 			

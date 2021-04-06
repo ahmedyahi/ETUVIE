@@ -1,3 +1,6 @@
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
     <html>
     <head classe = "header">
@@ -7,6 +10,7 @@
     </head>
     <body>
         <?php include ("head2.php");?>
+		
         <table class = 'table_formulaire'>
                 <thead>
                     <tr>
@@ -132,10 +136,13 @@
 				<th><input type="submit" value="Send" class = 'bouton_submit'/></th>
             </tr>
 			 </form>
+			 </table>
+					<div id="menu_pied">
+                    <?php include ("menu.php");?>
+                    </div>
 
 
-
-            <?php include ("foot2.php");?>
+            <?php include ("foot3.php");?>
    
 
     </body>
