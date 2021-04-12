@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 06, 2021 alle 18:38
+-- Creato il: Apr 11, 2021 alle 17:16
 -- Versione del server: 10.4.17-MariaDB
 -- Versione PHP: 8.0.1
 
@@ -110,6 +110,30 @@ INSERT INTO `culture` (`Ville`, `nbCinema`, `nbFestival`, `nbBiblio`, `nbMusee`)
 ('Strasbourg', 3, 29, 8, 173),
 ('Toulouse', 6, 42, 22, 126),
 ('Tours', 4, 11, 8, 90);
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `icone`
+--
+
+CREATE TABLE `icone` (
+  `criteres` varchar(25) NOT NULL,
+  `icone` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `icone`
+--
+
+INSERT INTO `icone` (`criteres`, `icone`) VALUES
+('Securité', 'securite.png'),
+('Transports', 'transport.png'),
+('Sport', 'sport.png'),
+('Culture', 'culture.png'),
+('Meteo', 'meteo.png'),
+('Loyer', 'loyer.png'),
+('Crous', 'crous.png');
 
 -- --------------------------------------------------------
 
@@ -288,7 +312,7 @@ INSERT INTO `preferes` (`id`, `username`, `ville`, `pref`) VALUES
 (5955, 'Julie22', 'Lyon', 1),
 (5976, 'Julie22', 'Nice', 1),
 (7752, 'nadia7', 'Nice', 1),
-(986, 'nadia7', 'Aix', 1);
+(7418, 'nadia7', 'Aix', 1);
 
 -- --------------------------------------------------------
 
@@ -534,30 +558,31 @@ CREATE TABLE `villes` (
   `Dep` int(2) DEFAULT NULL,
   `Prop_dEtudiant` int(6) DEFAULT NULL,
   `url_photo` varchar(27) DEFAULT NULL,
-  `noteTemp` float DEFAULT NULL
+  `noteTemp` float DEFAULT NULL,
+  `countTemp` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dump dei dati per la tabella `villes`
 --
 
-INSERT INTO `villes` (`Ville`, `Superficie`, `Habitants`, `Dep`, `Prop_dEtudiant`, `url_photo`, `noteTemp`) VALUES
-('Aix', '186.1', 146282, 13, 37305, 'images/aix_en_provence.jpg', 30.5714),
-('Bordeaux', '49.4', 260352, 33, 132604, 'images/bordeaux.jpg', 16),
-('Clermont-Ferrand', '42.7', 149464, 63, 47457, 'images/clermont_ferrand.jpg', 17.2857),
-('Grenoble', '18.1', 159855, 38, 95295, 'images/grenoble.jpg', 13.5714),
-('Lille', '34.8', 235189, 59, 179126, 'images/lille.jpg', 11.7143),
-('Lyon', '47.9', 525236, 69, 199860, 'images/lyon.jpg', 13.8571),
-('Marseille', '240.6', 874619, 13, 109684, 'images/marseille.jpg', 25.8571),
-('Montpellier', '56.9', 293410, 34, 112031, 'images/montpellier.jpg', 19),
-('Nancy', '15.0', 106330, 54, 84123, 'images/nancy.jpg', 11.7143),
-('Nantes', '65.2', 319284, 44, 46826, 'images/nantes.jpg', 16.8571),
-('Nice', '71.9', 343889, 6, 61629, 'images/nice.jpg', 16.7143),
-('Paris', '105.4', 2175601, 75, 352588, 'images/paris.jpg', 12),
-('Rennes', '50.4', 221898, 35, 128567, 'images/rennes.jpg', 15.2857),
-('Strasbourg', '78.3', 287532, 67, 81034, 'images/strasbourg.jpg', 17.8571),
-('Toulouse', '118.3', 479553, 31, 118000, 'images/toulouse.jpg', 0),
-('Tours', '34.4', 139230, 37, 30412, 'images/tours.jpg', 14.2857);
+INSERT INTO `villes` (`Ville`, `Superficie`, `Habitants`, `Dep`, `Prop_dEtudiant`, `url_photo`, `noteTemp`, `countTemp`) VALUES
+('Aix', '186.1', 146282, 13, 37305, 'images/aix_en_provence.jpg', 19.7143, 0),
+('Bordeaux', '49.4', 260352, 33, 132604, 'images/bordeaux.jpg', 19.1429, 0),
+('Clermont-Ferrand', '42.7', 149464, 63, 47457, 'images/clermont_ferrand.jpg', 14.4286, 0),
+('Grenoble', '18.1', 159855, 38, 95295, 'images/grenoble.jpg', 12.8571, 0),
+('Lille', '34.8', 235189, 59, 179126, 'images/lille.jpg', 12.4286, 0),
+('Lyon', '47.9', 525236, 69, 199860, 'images/lyon.jpg', 12.7143, 0),
+('Marseille', '240.6', 874619, 13, 109684, 'images/marseille.jpg', 16.8571, 0),
+('Montpellier', '56.9', 293410, 34, 112031, 'images/montpellier.jpg', 14.4286, 0),
+('Nancy', '15.0', 106330, 54, 84123, 'images/nancy.jpg', 10.7143, 0),
+('Nantes', '65.2', 319284, 44, 46826, 'images/nantes.jpg', 15, 0),
+('Nice', '71.9', 343889, 6, 61629, 'images/nice.jpg', 13.1429, 0),
+('Paris', '105.4', 2175601, 75, 352588, 'images/paris.jpg', 13.1429, 0),
+('Rennes', '50.4', 221898, 35, 128567, 'images/rennes.jpg', 15.5714, 0),
+('Strasbourg', '78.3', 287532, 67, 81034, 'images/strasbourg.jpg', 15.7143, 0),
+('Toulouse', '118.3', 479553, 31, 118000, 'images/toulouse.jpg', 0, 0),
+('Tours', '34.4', 139230, 37, 30412, 'images/tours.jpg', 11, 0);
 
 --
 -- Indici per le tabelle scaricate

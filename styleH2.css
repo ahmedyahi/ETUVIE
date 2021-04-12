@@ -2,70 +2,87 @@
 *{
 margin: 0;
 padding: 0;
+
 }
+body{
+	background-color: #b0c9d8;
+	margin-right: auto;
+	margin-left: auto;
+	
+}
+
+
+
 /* -----------------------------------------------------------------------Style Head*/
-.header{
-	display: block;
-	width: 100%;
-	height: 4em;
-	position: fixed;
-	background-color: #115A83;
-	top: 0;
-	overflow: hidden;
-	position: sticky;
-	overflow: hidden;
-	z-index:1;
-}
+	.header{
+		display: block;
+		width: 100%;
+		height: 5em;
+		position: fixed;
+		background-color: #115A83;
+		top: 0;
+		overflow: hidden;
+		position: sticky;
+		overflow: hidden;
+	
+	}
 
 
-.ident{
-	display: block;
-    position: absolute;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-align: center right;
-    right: 10px;
-}
+	.ident{
+		display: block;
+		position: absolute;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		text-align: center right;
+		right: 10px;
+	}
 
-.ident a {
+	.ident a {
 
-/*text-decoration: none;*/
-color: white;
-padding: 10px;
+		color: white;
+		padding: 10px;
 
-}
+	}
 
 
-.logo img{
-	padding: 0.5em;
-	display: inline;
-	border-radius: 100px;
-	height: 3em;
-	width: 3em;
-	left: 10px;
-	position: absolute;
+	.logo img{
+		text-align: center;
+		padding: 0.5em;
+		display: inline;
+		border-radius: 100px;
+		height: 4em;
+		width: 4em;
+		left: 10px;
+		position: absolute;
 
-}
+	}
 
-.ident2{
-	display: inline;
-    position: absolute;
+	.ident2{
+		display: inline;
+		position: absolute;
 		height: 2em;
 		width:18em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    text-align: center right;
-    right: 10px;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		text-align: center right;
+		right: 10px;
 
-}
-.bienvenue{
-
-	display:inline;
-	height: 4em;
-	width: 14em;
+	}
 	
+	#icone_header{
 
-}
+		display: inline-block;
+		right: 10px;
+		position: absolute;
+		top:5%;
+	}
+	#icone_header2{
+	
+		display: inline-block;
+		right: 90px;
+		position: absolute;
+		top:5%;
+	}
 /* -----------------------------------------------------------------------Style Foot*/
 .footer{
 		background-color: #115A83;
@@ -96,7 +113,7 @@ padding: 10px;
 }
 
 .footer ul a {
-	     padding-top:0;
+	 padding-top:0;
 		text-decoration: none;
 		color: white;
 
@@ -115,6 +132,7 @@ padding: 10px;
 
 
 }
+
 
 
 /* -----------------------------------------------------------------------Style Menu*/
@@ -147,17 +165,7 @@ padding: 10px;
     z-index:1;
 	text-align:center; 
 	margin-top:50px;
-
-	}
-	.position_menu2 {
-
-	position:sticky;
-	left:350px;
-	bottom:100px;
-    display:block;
-    z-index:1;
-	text-align:center; 
-	margin-top:200px;
+	padding-bottom: 150px;
 
 	}
 
@@ -174,57 +182,57 @@ padding: 10px;
     display: block;
     margin-right:auto;
     margin-left:auto;
-    background-color:blue ;
+    background-color:#9c9c9c;
 }
 
 /*  -----------------------------------------------------------------------Style Classement*/
 
 .tableau{
 	margin: 20px;
+	border-radius: 10%;
 }
 
 .classement{
 	border-collapse: collapse;
 	border-spacing:2em;
-	width : 80%;
+	width : 100%;
 	margin-left : auto;
 	margin-right :auto;
 	padding: 5em;
-	background-color: #FFEDED;
+	
+
 
 }
 
 .classement th, td {
-	padding: 20px;
-	color: white;
+	padding-top : 2em;
+	text-align: center;
+	border:none;
+	
 
 
+}
+.classement tr{
+	border-radius: 5%;
+	padding-top : 2em;
+	background-color: #9ca6b5;
+	border: 2px solid #115A83;
+	border-radius: 2%;
+	padding-top: 2%;
 }
 .classement a{
 	text-decoration: none;
 	color: white;
-	}
 
 
-.classement th{
-	text-align: center;
-
-	background-color: #115A83;
-	}
-
-.classement tr{
-	background-color: #A4AFCC;
-	}
+	}*
 
 .classement .nom{
 	text-align:center;
 	width: 30%;
-
-}
-.classement .image{
-	text-align:center;
-	width: 5%;
-
+	color: #115A83;
+	font:bold;
+	font-size:large
 }
 .classement .info{
 	text-align: right;
@@ -238,6 +246,31 @@ padding: 10px;
 	width: 15%;
 
 }
+#entete{
+	background-color:#115A83
+}
+
+		
+.bouton	{
+	
+	border: solid .125em transparent;
+	padding: 0;
+	width: 2em; height:1em ;
+	border-radius: 1em;
+	color: #fff;
+    font: Condensed;
+    font-family: Arial;
+    font-size: px;
+	filter: contrast(.65);
+    border-radius: 0.5em;
+    box-shadow: inset 0 1px 1px #9c9c9c;
+    background-color: #115A83
+	
+}
+
+
+
+
 
 
 /*------------------------------------------------------------------Page Comparaison*/
@@ -267,15 +300,17 @@ padding: 10px;
 	border-right:none;
 	font-weight:bold;
 }
+
+
 #note{
 	position:relative;
 	left:0px;
 	top:0px;
-	border:1px solid #000;
-	text-align:right;
+	color:#fff;
+	text-align:center;
 	font-size:0.9em;
-	padding-right:0.2em;
-	padding-left:-0.2em;
+	
+	
 }
 
 /*------------------------------------------------------------------formulmaire _selection*/
@@ -283,17 +318,19 @@ padding: 10px;
 .table_formulaire{
 
     display: table;
-    width: 30%;
-    height: 40%;
+	border-radius: 10px;
+    width: 40%;
+    height: 50%;
     margin:50px auto;
-    top:  20%;
-    bottom: 20%;
+	box-shadow: 20px;
+    margin-top: 12%;
     padding: 15px;
     border: 1rem solid;
     border-color:#115A83;
     background-color: #9c9c9c ;
-    opacity: 0.8 ;
 	text-align:center;
+	text-shadow: 5px;
+	
 }
 th{
 
@@ -324,11 +361,11 @@ th{
      box-shadow: inset 0 1px 1px #9c9c9c;
      background-color: #115A83;
 	 cursor:pointer;
-	
-
  }
+	
 .bouton_avis{
-			position:relative;
+			position:absolute;
+			display:contents;
 			margin-left: 50;
 			margin-right: auto;
 			border: solid .125em transparent;
@@ -350,9 +387,8 @@ th{
 			margin-left: 100px;
 			margin-top:100px;
 			border: solid .125em transparent;
-			
 			width: 6.375em; height: 1.5em ;
-			border-radius: 1em;
+			border-radius: 65%;
 			color: white;
 			font: Condensed;
 			font-family: Arial;
@@ -377,9 +413,19 @@ th{
 
 	padding-top:20px;
 }
-
+#slide_images2{
+	width: 600px;
+	height:400px;
+	background-color: #115A83;
+	border-radius : 25px;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+}
 #slide_images{
 	margin-top: 20px;
+	border-radius : 25px;
+	padding-top :50px;
 
 }
 .slider{
@@ -482,6 +528,12 @@ th{
 	border-style:none;
 	
 }
+.p_acceuil{
+	text-align:center;
+	color:white;
+	padding:10px;
+	font-size:20px;
+  }
 
 /* Etoiles   */
 .tde{
@@ -489,10 +541,14 @@ th{
 			width:20px;
 			cursor:pointer;
 			}
-#glob {display: flex;}
+#glob {
+	display: flex;
+	border-radius: 5px;
+
+}
 
 #note{
-			display:inline-block;
+			display:inline;
 			position:relative;
 			width:30px;
 			border:0;
@@ -503,23 +559,28 @@ th{
 }
 
 		
-/* page fiche ville */
+/*----------------------------------------------------------------------Style fiche ville*/
 .table_fiche{
 	margin-top:0px;
 	text-align:center;
 	border-style:none;
+	background-color: #3f7594;
+	
 }
 #graph{
 	display:block;
 	margin:auto;
 	position:relative;
 	float:right;
+	
 }
 #ville1{
 	width:680px;
 	height:250px;
 	border-radius:60px;
 	margin-top:20px;
+	border:10px solid white;
+	
 }
 .compa1{
 	display:table;
@@ -537,10 +598,24 @@ th{
 	border-style:none;
 }
 #ville{
-	height:150px;
-	width:150px;
-	border-radius:60px;
+
+	display:inline-flexbox;
+	border:5px solid white;
+	width:80%;
+	height:250px;
+	border-radius:15px;
 	margin-top:20px;
+	box-shadow: #0d4464;
+	
+
+}
+#ville2{
+	height:200px;
+	width:200px;
+	border-radius:65px;
+	margin-top:20px;
+	background-color: #fff;
+	
 }
 .compa{
 	display:inline;
@@ -552,4 +627,145 @@ th{
 	font-style:bold;
 }
 		
-		
+/* Etoiles   */
+.tde{
+            height:20px;
+            width:20px;
+            cursor:pointer;
+            }
+#glob {display: flex;}
+
+#note{
+            display:inline-block;
+            position:relative;
+            width:30px;
+            border:0;
+            background-color:#115A83;
+            color:white;
+            font-size:20px;
+            border-radius: 10px;
+}
+
+
+/* page fiche ville */
+.table_fiche{
+    margin-top:0px;
+    text-align:center;
+    border-style:none;
+}
+#graph{
+    display:block;
+    margin:auto;
+    position:relative;
+    float:right;
+}
+#ville1{
+    width:680px;
+    height:250px;
+    border-radius:60px;
+    margin-top:20px;
+}
+.compa1{
+    display:table;
+    margin:auto;
+    top:20%;
+    bottom:20%;
+    position:center;
+    border-style:none;
+}
+
+/*page comparateur */
+.table_compa{
+    margin-top:0px;
+    border-width:0;
+    border-style:none;
+}
+#ville{
+    height:150px;
+    width:150px;
+    border-radius:60px;
+    margin-top:20px;
+}
+.compa{
+    display:inline;
+}
+/titres tables*/
+.titres{
+    text-align:center;
+    font-size:22px;
+    font-style:bold;
+}	
+.profil{
+	width:150px;
+	height:130px;
+	border-radius:50%;
+}	
+#fiche_logo{
+	position:static;
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 5em;
+	border-radius: 50%;
+}
+.icone{
+	border-radius:50%;
+	box-shadow: #3f7594;
+	box-shadow: 50px;
+	
+}
+
+#lire_avis_logo{
+	float:right;
+
+}
+.menu_bouton2{
+	text-decoration: none;
+	border: solid .125em transparent;
+	padding: 0;
+	width: 8.5em; height:2em ;
+	border-radius: 1em;
+	color: #fff;
+    font: Condensed;
+    font-family: Arial;
+    font-size: 20px;
+	filter: contrast(.65);
+    border-radius: 0.5em;
+    box-shadow: inset 0 1px 1px #9c9c9c;
+    background-color: #115A83;
+	margin-right: auto;
+	margin-left: auto;
+	}
+	.logo_inscrire{
+		display:inline;
+	}
+	.div_icone{
+		display:inline-block;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	#profil_criteres{
+		display: block;
+		margin-left:auto;
+		margin-right:auto;
+		padding-top:20px;
+		text-align:center;
+	}
+	#profil_criteres2{
+			display: block;
+			margin-left:auto;
+			margin-right:auto;
+			padding-top:20px;
+			text-align:center;	
+			float:bottom;
+			border-radius: 15px;
+
+	}
+	#menu_prof{
+		padding-bottom:200px;
+	}
+	#erreur{
+		color: red;
+	}
+	
+/*Survole icones*/	

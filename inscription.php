@@ -1,212 +1,85 @@
-<?php
+<!DOCTYPE html>
+        <html>
+            <head>
+            <link rel="shortcut icon" href="logo.ico" type="logo-icon">
+	      	<link rel="icon" href="logo.ico" type="logo-icon">
+            
+            </head>
+            <body>
+                   
+            
+                    <link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                    <style>
+                    p{
 
-$nom=$prenom=$phone=$adresse=$email=$password=$mdpc=$image="";
-$nomErr=$prenomErr=$phoneErr=$adresseErr=$emailErr=$passwordErr=$mdpcErr=$imageErr="";
-$suces=false;
+                    width:500px;
+                    margin:auto;
+                    font-family:Times New Roman;
+                    font-size:120%;
+                    padding-top: 20px;
 
-if(!empty($_POST))
-{
-    $nom=securite($_POST["nom"]);
-    $prenom=securite($_POST["prenom"]);
-	$username=securite($_POST["username"]);
-    $phone=securite($_POST["phone"]);
-    $adresse=securite($_POST["adresse"]);
-    $email=securite($_POST["email"]);
-    $password=securite($_POST["mdp"]);
-    $mdpc=securite($_POST["mdcp"]);
+                    }
+                    p+ #bouton{
+                    text-align:center;
 
-    //$image=securite($_FILES["image"]["name"]);
-    //$imagePath='images/'.basename($image);
-    //$imageExtension=pathinfo($imagePath,PATHINFO_EXTENSION);
-
-    $isUpload=false;
-    $suces=true;
-
-    if(empty($nom))
-    {
-        $nomErr="Veuillez saisir votre nom s'il vous plait !";
-        $suces=false;
-    }
-     if(empty($prenom))
-    {
-        $prenomErr="Veuillez saisir votre prenom s'il vous plait !";
-         $suces=false;
-    }
-	 if(empty($username))
-    {
-        $usernameErr="Veuillez saisir votre username s'il vous plait !";
-         $suces=false;
-    }
-
-    if(!isPhone($phone))
-    {
-        $phoneErr="Veuillez saisir des chiffres s'il vous plait !";
-        $suces=false;
-    }
-     if(!isEmail($email))
-    {
-        $emailErr="Veuillez saisir votre email s'il vous plait !";
-         $suces=false;
-    }else
-     {
-
-         $db=new PDO('mysql:host=localhost;dbname=Projet_L3;charset=utf8', 'root', 'root');
-         $resu=$db->query("select email from clients ");
-         while($ligne=$resu->fetch())
-         {
-             $test=$ligne['email'];
-             if($test==$email)
-             {
-                 $emailErr="Ce nom utilisateur existe deja !";
-                 $suces=false;
-             }
-         }
-
-     }
-
-    if(empty($adresse))
-    {
-        $adresseErr="Veuillez saisir votre adresse s'il vous plait !";
-        $suces=false;
-    }
-
-     if(empty($password))
-    {
-        $passwordErr="Veuillez saisir votre mot de passe s'il vous plait !";
-         $suces=false;
-    }
-    if(empty($mdpc))
-    {
-        $passwordErr="Veuillez confirmer le mot de pass s'il vous plait !";
-        $suces=false;
-    }
-    else
-     {
-       if($mdpc!=$password)
-       {
-          $passwordErr="Le mot de pass sont differents merci de reessayer !";
-          $suces=false;
-       }
-     }
-
-    /* ----------------------------------xa commence ici la base de donnee---------------------------------*/
-
-    if($suces)
-    {
-        $db=new PDO('mysql:host=localhost;dbname=Projet_L3;charset=utf8', 'root', 'root');
-        $resulta=$db->prepare(" INSERT into clients (id_client,nom,prenom,phone,adresse,email,mot_passe) values(?,?,?,?,?,?,?)");
-        $resulta->execute(array(null,$nom,$prenom,$phone,$adresse,$email,$password));
-
-        $_SESSION['var']=$prenom;
-
-        header("location: accueil2.php");
+                    }
+                    </style>
+                    </HEAD>
+                    <body>
+                    
 
 
-    }
-     /* ----------------------------------xa fini ici la base de donnee---------------------------------*/
+                    <?php include ("head2.php");?>
+                    <?php if(isset($_GET["e"])){
+                        echo "<div style ='padding-bottom :50px ;width : 200px ; height : 50 px;' class = 'table_formulaire';>";
+                            echo "<p style='color: red'>";?>
+                                <img class = icone style="width: 50px;height: 50px; display:block; margin-right:auto; margin-left:auto;" src = 'attention.png'/>
+                                <?php echo $_GET["e"];
+                            echo  "</p>";
+                        echo "</div>";
+            
+                    }?>
+                    <div class="table_formulaire">
+                    <div><img class = icone style="width:150px;height:150px;margin-left:auto;margin-right:auto;" src=user.png alt="image user" /></div>
+                    <form action="enregistrement.php" method="POST" autocomplete="off">
+
+                        <p><input type="text" name="nom"  value= "<?php if(isset($_GET['nom'])) echo $_GET['nom']; ?>" placeholder="Nom"/></p>
+                       
+                        <p><input type="text" name="prenom"  value= "<?php if(isset($_GET['prenom'])) echo $_GET['prenom']; ?>" placeholder="Prenom"/></p>
+                      
+                        
+                        <p><input type="text" name="username"  value= "<?php if(isset($_GET['username'])) echo $_GET['username']; ?>" placeholder="Username"/></p>
+                       
+                        <p><input type="text" name="phone"   value= "<?php if(isset($_GET['phone'])) echo $_GET['phone']; ?>" placeholder="Phone"/></p>
+                       
+                        <p><input type="text" name="adresse"  value= "<?php if(isset($_GET['adresse'])) echo $_GET['adresse']; ?>" placeholder="Adresse"/></p>
+                       
+                        <p><input type="text" name="email" value= "<?php if(isset($_GET['email'])) echo $_GET['email']; ?>" placeholder="Email"/></p>
+                        
+
+                        <p><input type="password" name="mdp1" value="" placeholder="Password"/></p>
+                        
+                    <p><input type="password" name="mdp2"  value="" placeholder="Confirm"/></p>
+
+             
+                        <p><input type="submit" value="Valider" /></p>
+
+
+
+                    </form>
+
+                    
+                    </div>
+                  
+                    <div id="menu_pied" style = "padding-bottom: 100px">
+                        <?php include ("menu.php");?></div>
+                    <?php include ("foot3.php");?>
+        
 
 
 
 
 
-
-}
-function isPhone($var)
-{
-    return preg_match("/^[0-9 ]*$/",$var);
-}
-function isEmail($var)
-{
-    return filter_var($var,FILTER_VALIDATE_EMAIL);
-}
-
-function securite($var)
-{
-    $var=htmlspecialchars($var);
-    $var=stripslashes($var);
-    $var=trim($var);
-    return $var;
-}
-
-
-
-
-
-?>
-<!DOCTYPE HTML>
-<HTML>
-<!DOCTYPE HTML>
-<HTML>
-<HEAD>
-<TITLE>Index</TITLE>
-<link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<style>
-p{
-
-width:500px;
-margin:auto;
-font-family:Times New Roman;
-font-size:120%;
-padding-top: 20px;
-
-}
-p+ #bouton{
-text-align:center;
-
-}
-</style>
-</HEAD>
-<body>
-
-
-
-  <?php include ("head2.php");?>
-  <div class="table_formulaire">
-
-<form action="enregistrement.php" method="POST" autocomplete="off">
-
-      <p>Nom: <input type="text" name="nom"  value= "<?php if(isset($_GET['nom'])) echo $_GET['nom']; ?>"/></p>
-    <?php echo $nomErr; ?>
-
-      <p>Prenom: <input type="text" name="prenom"  value= "<?php if(isset($_GET['prenom'])) echo $_GET['prenom']; ?>"/></p>
-     <?php echo $prenomErr; ?>
-	 
-      <p>Username: <input type="text" name="username"  value= "<?php if(isset($_GET['username'])) echo $_GET['username']; ?>"/></p>
-    <?php echo $nomErr; ?>
-
-      <p>Telephone: <input type="text" name="phone"   value= "<?php if(isset($_GET['phone'])) echo $_GET['phone']; ?>"/></p>
-     <?php echo $phoneErr; ?>
-
-      <p>Adresse: <input type="text" name="adresse"  value= "<?php if(isset($_GET['adresse'])) echo $_GET['adresse']; ?>"/></p>
-     <?php echo $adresseErr; ?>
-
-      <p>Email: <input type="text" name="email" value= "<?php if(isset($_GET['email'])) echo $_GET['email']; ?>"/></p>
-     <?php echo $emailErr; ?>
-
-     <p>Password : <input type="password" name="mdp1" value=""/></p>
-    <?php echo $passwordErr; ?>
-
- <p>Confirmer Password : <input type="password" name="mdp2"  value=""/></p>
-
-       <!--
- <th>Photo :</th><th><input type="file" id="image" name="photo"  value=""/></th>
-       <th><?php echo $imageErr; ?></th>
- </th>  -->
-
-     <p><input type="submit" value="Valider" /></p>
-
-
-
-</form>
-
-
-</div>
-<?php //include ("foot2.php");?>
-
-
-
-
-
-</body>
-</html>
+            </body>
+        </html>
