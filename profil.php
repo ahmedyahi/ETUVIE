@@ -10,6 +10,7 @@
 			<link rel="icon" href="logo.ico" type="logo-icon">
 			<TITLE>Espace personnel</TITLE>
 			<style>
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
 				p{
 					display:block;
 					padding: top 6px;
@@ -18,35 +19,35 @@
 					color:#3f7594;
 				}
 				.cadrep {
-  position: relative;   
-  width: 100px;          
-  overflow: hidden;     
-  line-height: 2em;    
-  display:inline;
-}
-.cadrep img {
-  z-index: 1;          
-  position: relative;   
-  width: 100px;         
-}
-.cadrep span {
-  display: none;
-  position: absolute;  
-  width:150px;
-  margin-left:-70%; 
-  top:-890%;
-  padding: 0 .25em;     
-  color: #eee;          
-  background: #069;     
-  transition: all .5s;  
-  opacity:0.7;
-  border-radius:10%;
-  
-}
-.cadrep:hover span{
-  display:block;
-  left: 2em;            
-}
+					  position: relative;   
+					  width: 100px;          
+					  overflow: hidden;     
+					  line-height: 2em;    
+					  display:inline;
+					}
+				.cadrep img {
+					  z-index: 1;          
+					  position: relative;   
+					  width: 100px;         
+					}
+				.cadrep span {
+					  display: none;
+					  position: absolute;  
+					  width:150px;
+					  margin-left:-70%; 
+					  top:-890%;
+					  padding: 0 .25em;     
+					  color: #eee;          
+					  background: #069;     
+					  transition: all .5s;  
+					  opacity:0.7;
+					  border-radius:10%;
+					  
+					}
+				.cadrep:hover span{
+					  display:block;
+					  left: 2em;            
+					}
 			</style>
 		</head>
 		<body>
