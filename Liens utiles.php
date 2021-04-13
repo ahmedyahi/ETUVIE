@@ -8,50 +8,47 @@
 			<link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />	
 			<TITLE>Criteres</TITLE>
 			<style>
-			td{
-				font: italic small-caps bold  14px cursive;
-				padding-bottom:15px;
-				color:#fff;	
-			}
-				
- .cadrelu{
-  position: relative;   
-  width: 50px;          
-  overflow: hidden;     
-  line-height: 2em;     
-  display:inline;
-}
-.cadrelu img {
-  z-index: 1;           
-  position: relative;   
-      
-}
-.cadrelu span {
-  display: none;
-  position: absolute;  
-  width:500px;
-  margin-left:-50%;
-  top:-1500%;
-  padding: 0 .25em;     
-  color: #eee;         
-  background: #069;     
-  opacity:0.7;
-  border-radius:10%;
-  
-}
-.cadrelu:hover span{
-  display:block;
-  left: -5em;            
-}
-
-
-			
-			</style>
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
+				td{
+					font: italic small-caps bold  14px cursive;
+					padding-bottom:15px;
+					color:#fff;	
+					}
+								
+			    .cadrelu{
+					  position: relative;   
+					  width: 50px;          
+					  overflow: hidden;     
+					  line-height: 2em;     
+					  display:inline;
+				}
+				.cadrelu img {
+					  z-index: 1;           
+					  position: relative;   
+					  
+				}
+				.cadrelu span {
+					  display: none;
+					  position: absolute;  
+					  width:500px;
+					  margin-left:-50%;
+					  top:-1500%;
+					  padding: 0 .25em;     
+					  color: #eee;         
+					  background: #069;     
+					  opacity:0.7;
+					  border-radius:10%;
+				}
+				.cadrelu:hover span{
+					  display:block;
+					  left: -5em;            
+				}
+		</style>
     </head>
         
         <body>
         <?php include ("head2.php");?>
-        
+       
         <table class='table_formulaire'>
                 <tr>
                 <th> <div class="cadrelu"> <span>(Type de crime*coefficient de gravité)/100</span>	<img class = icone style="width: 150px;px;height: 150px;" src = 'Securite.png'></a> </div> </th>

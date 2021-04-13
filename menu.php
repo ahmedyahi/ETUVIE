@@ -5,39 +5,38 @@
             type="text/css" media="screen" />
             <meta http-equiv="Content-Type"
             content="text/html; charset=UTF-8" />
-<style>
-.cadrem {
-  position: relative;   
-  width: 100px;          
-  overflow: hidden;     
-  line-height: 2em;     
-  display:inline;
-}
-.cadrem img {
-  z-index: 1;          
-  position: relative;   
-  width: 100px; 
-}  
-.cadrem span{
-  display: none;
-  position: absolute;
-  width:150px;
-  margin-left: -100%;   
-  top:-570%;
-  padding: 0 .25em;     
-  color: #eee;          
-  background: #069;     
-  transition: all .5s;  
-  opacity:0.7;
-  border-radius:10%;
-  
-}
-.cadrem:hover span{
-  display:block;
-  left: 2em;            
-}
-			
-</style>
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
+			<style>
+			.cadrem {
+				  position: relative;   
+				  width: 100px;          
+				  overflow: hidden;     
+				  line-height: 2em;     
+				  display:inline;
+			}
+			.cadrem img {
+				  z-index: 1;          
+				  position: relative;   
+				  width: 100px; 
+			}  
+			.cadrem span{
+				  display: none;
+				  position: absolute;
+				  width:150px;
+				  margin-left: -100%;   
+				  top:-570%;
+				  padding: 0 .25em;     
+				  color: #eee;          
+				  background: #069;     
+				  opacity:0.7;
+				  border-radius:10%;
+			  }
+			.cadrem:hover span{
+				  display:block;
+				  left: 2em;            
+			}
+						
+			</style>
         </head>
         <body>
             <div class= "position_menu" >

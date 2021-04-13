@@ -6,46 +6,47 @@
 		<head classe = "header">
 			<link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
 			<style>
-.cadrecl {
-  position: relative;   
-  width: 100px;         
-  overflow: hidden;     
-  line-height: 2em;     
-  display:inline;
-}
-.cadrecl img {
-  z-index: 1;           
-  position: relative;  
-  width: 100px;          
-}
-.cadrecl span {
-  display: none;
-  position: absolute;  
-  width:450px;
-  margin-right:auto; 
-  margin-left:auto;   
-  bottom:-500%;
-  padding: 0 .25em;     
-  color: #eee;          
-  background: #069;     
-  transition: all .5s;  
-  opacity:0.7;
-  border-radius:10%;
-  
-  
-}
-.cadrecl:hover span{
-  display:block;
-  left: 2em;          
-}
-p{
-	font: italic small-caps bold 15px cursive;
-	padding-bottom:15px;
-	color:#fff
-}
+				.cadrecl {
+				  position: relative;   
+				  width: 100px;         
+				  overflow: hidden;     
+				  line-height: 2em;     
+				  display:inline;
+				}
+				.cadrecl img {
+				  z-index: 1;           
+				  position: relative;  
+				  width: 100px;          
+				}
+				.cadrecl span {
+				  display: none;
+				  position: absolute;  
+				  width:450px;
+				  margin-right:auto; 
+				  margin-left:auto;   
+				  bottom:-500%;
+				  padding: 0 .25em;     
+				  color: #eee;          
+				  background: #069;     
+				  transition: all .5s;  
+				  opacity:0.7;
+				  border-radius:10%;
+				  
+				  
+				}
+				.cadrecl:hover span{
+				  display:block;
+				  left: 2em;          
+				}
+				p{
+					font: italic small-caps bold 15px cursive;
+					padding-bottom:15px;
+					color:#fff
+				}
 
-</style>
+			</style>
 
 		</head>
 		<body>
@@ -63,16 +64,17 @@ p{
 					sel4.style="display:none;";
 					sel5.style="display:none;";
 					sel6.style="display:none;";
+					/* Les if suivants permet de faire apparaitre dans tous les select de nouveau une option qu'on a changé. */
 					var i,j;
 					if(count>0){
 						if(tmp1>0){
 							var bool=1;
 							for(j=1;j<8;j++){
-								var y="s"+j;
+								var y="s"+j; /* si n'est pas changé on fait rien*/
 								if(id==y)
 								bool=0;
 							}
-							if(bool=1){
+							if(bool=1){  /* si on a changé on la fait apparaitre de nouveau*/
 								for(i=1;i<8;i++){
 									var x="s"+i;
 									var s=document.getElementById(x);
@@ -226,8 +228,15 @@ p{
 						<th>
 							<form method="GET" action="classement.php" autocomplete="off">
 								<select id="sel1" name="critere1">
+								<!-- Pour que un critère choisit ne s'affiche plus comme option dans les autres choix on utilise du code JS avec la fonction onclick 
+									où on envoie comme paramètres l'identifiant de l'option choisie (ex "s1"),le selecteur (select ex "sel1") correspondant à cette option,tous les identifiants de l'option choisie
+									pour les autres 6 selecteurs (ex "s2","s3" etc.). Ces paramètres suffiront pour masquer cette option dans les autres sélécteurs,mais ne permet pas,au moment où on change 
+									cette choix, de la refaire apparaitre dans les autres sélécteurs. Donc on envoie un compteur initialisé à 0 (ex "a++") qui permet de tenir compte qu'on a déjà choisit avant une option dans le respectif sélécteur,
+									En plus,pour garder quelle option on avait choisit en dernière dans le selecteur,on envoie des nouveaux compteurs initialisés à 0 (ex "a1","a2" etc) où seulement celui associé au identifiant est envoyé à +1.
+								
+								-->
 										<option> </option>
-										<option id="s1" onclick="optionClic('s1','sel1','s2','s3','s4','s5','s6','s7',a++,a1++,a2,a3,a4,a5,a6,a7)" >Securité</option>
+										<option id="s1" onclick="optionClic('s1','sel1','s2','s3','s4','s5','s6','s7',a++,a1++,a2,a3,a4,a5,a6,a7)" >Securité</option> 
 										<option id="t1" onclick="optionClic('t1','sel1','t2','t3','t4','t5','t6','t7',a++,a1,a2++,a3,a4,a5,a6,a7)">Transports</option>
 										<option id="sp1" onclick="optionClic('sp1','sel1','sp2','sp3','sp4','sp5','sp6','sp7',a++,a1,a2,a3++,a4,a5,a6,a7)">Sport</option>
 										<option id="m1" onclick="optionClic('m1','sel1','m2','m3','m4','m5','m6','m7',a++,a1,a2,a3,a4++,a5,a6,a7)">Meteo</option>

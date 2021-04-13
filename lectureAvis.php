@@ -7,6 +7,7 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 			<link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
 			<style type="text/css">
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
 				.titres{
 					text-align:center;
 					font-size:22px;
@@ -81,7 +82,7 @@
 			$rep1=$bdd->query('select * from avis where Ville=\''.$Ville.'\''); 
 			$ligne=$rep->fetch();
 			$rep2=$bdd->query('select * from avis where Ville=\''.$Ville.'\''); 
-			if($ligne2=$rep2->fetch()==""){ ?>
+			if($ligne2=$rep2->fetch()==""){ /*si dans la base il n'y a pas encore d'avis pour la ville séléctionnée*/ ?> 
 				<div class="cadrel"> 
 				<span>Donner un avis</span>
 			
@@ -89,7 +90,7 @@
 				<p style=margin-top:50px;text-align:center; > Pas encore des avis pour cette ville. </p>
 				</div><?php
 				}
-			else{ ?>
+			else{ /*Sinon on affiche les avis avec l'user qui les a donné*/ ?> 
 				
 				<div class="table_formulaire">
 					<table class = "classement">

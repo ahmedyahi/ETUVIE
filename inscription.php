@@ -31,7 +31,7 @@
 
 
                     <?php include ("head2.php");?>
-                    <?php if(isset($_GET["e"])){
+                    <?php if(isset($_GET["e"])){ /*Si la page enregistrement renvoie une phrase d'erreur alors on affiche la phrase d'erreur*/
                         echo "<div style ='padding-bottom :50px ;width : 200px ; height : 50 px;' class = 'table_formulaire';>";
                             echo "<p style='color: red'>";?>
                                 <img class = icone style="width: 50px;height: 50px; display:block; margin-right:auto; margin-left:auto;" src = 'attention.png'/>
