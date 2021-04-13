@@ -21,7 +21,23 @@
 								
 							</tr>
 							<tr>
-								<td style ='font: italic small-caps  14px cursive;padding-bottom:15px;color:#fff' class = "nom"> <a href=https://github.com/ahmedyahi/ETUVIE /a> GitHub</td>
+								<td style ='font: italic small-caps  14px cursive;padding-bottom:15px;color:#fff' class = "nom"> Chabanol Jean</td>
+								
+							</tr>
+							<tr>
+								<td style ='font: italic small-caps  14px cursive;padding-bottom:15px;color:#fff' class = "nom">Issouffou Arazi </td>
+								
+							</tr>
+							<tr>
+								<td style ='font: italic small-caps  14px cursive;padding-bottom:15px;color:#fff' class = "nom"> Mugisha Kelly-Elvine </td>
+								
+							</tr>
+							<tr>
+								<td style ='font: italic small-caps  14px cursive;padding-bottom:15px;color:#fff' class = "nom">Romagnoni Nadia </td>
+								
+							</tr>
+							<tr>
+								<td style ='font: italic small-caps  14px cursive;padding-bottom:15px;color:#fff' class = "nom"> Yahi Ahmed Khalil </td>
 								
 							</tr>
 						</tbody>

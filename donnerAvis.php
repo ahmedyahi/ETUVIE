@@ -12,15 +12,25 @@
     </head>
     <body>
 	 	<?php include ("head2.php");
+		/*Un utilisateur qui est pas connécté ne peut pas donner des avis*/
         	if (!isset($_SESSION['users'])){
 			 	echo "<p style=margin-top:50px;text-align:center;> Pour pouvoir laisser un avis,vous devez d'abord vous inscrire au site ou vous connetre avec votre compte. </p>";
 			}
 		?>			
-		<?php
+		<?php /*Un utilisateur qui est connécté  peut donner des avis*/
 			if (isset($_SESSION['users'])){ ?>
+			 <?php if(isset($_GET["e"])){ /*Si la page ajout renvoie une phrase d'erreur alors on affiche la phrase d'erreur*/
+                        echo "<div style ='padding-bottom :50px ;width : 200px ; height : 50 px;' class = 'table_formulaire';>";
+                            echo "<p style='color: red'>";?>
+                                <img class = icone style="width: 50px;height: 50px; display:block; margin-right:auto; margin-left:auto;" src = 'attention.png'/>
+                                <?php echo $_GET["e"];
+                            echo  "</p>";
+                        echo "</div>";
+            
+                    }?>
         		<div class="table_formulaire">
 					<a href  = "historiqueAvis.php?id"><img class = icone style="width: 75px;height:75px;" src = 'historique.png'></a>
-					<form method="GET" action="ajoutAvis.php" autocomplete="off">
+					<form method="POST" action="ajoutAvis.php" autocomplete="off">
 						<input type="hidden" name="id" step=0 value="<?php $_SESSION['users'][0]; ?> "/>
 						<p>
 							<?php
@@ -28,6 +38,7 @@
 								$bdd = getBD();	
 								$rep=$bdd->query('select * from villes'); 
 							?>
+	
 							Ville :
 							<select name="ville">
 								<?php 
@@ -44,8 +55,8 @@
 						</p>
 
 						<p>
-							Le language de mon commentaire est approprié et respectueux :
-							<input type="checkbox" name="respect">
+							
+							<input type="radio" name="respect" value="oui" >Le language de mon commentaire est approprié et respectueux 
 						</p>
 						<p>
 							<INPUT type="submit" value="Envoyer mon avis"/>

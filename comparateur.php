@@ -9,57 +9,56 @@
 			<title>Fiche ville</title>
 			<link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
-<style>
- .cadref {
-  position: relative;   
-  width: 50px;          
-  overflow: hidden;     
-  line-height: 2em;     
-  display:inline;
-}
-.cadref img {
-  z-index: 1;           
-  position: relative;   
-  width: 50px;          
-}
-.cadref span {
-  display: none;
-  position: absolute;  
-  width:150px;
-  margin-left:-150%;
-  bottom:-100%;
-  padding: 0 .25em;     
-  color: #eee;         
-  background: #069;     
-  opacity:0.7;
-  border-radius:10%;
-  
-}
-.cadref .n {
-  font-size:10px;
-  display: none;
-  position: absolute;  
-  width:100px;
-  height:90px;
-  margin-left:-50%;
-  top:-50%;
-  padding: 0 .25em;     
-  color: #eee;         
-  background: #115A83;   
-  opacity:0.7;
-  border-radius:10%;
-  
-}
-.cadref:hover span{
-  display:block;
-  left: 1em;            
-}
-.cadref:hover .n{
-  display:block;
-  left:5em;
-  height:30px;
-}
-</style>			
+			<style>
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
+				.cadref {
+					position: relative;   
+					width: 50px;          
+					overflow: hidden;     
+					line-height: 2em;     
+					display:inline;
+				}
+				.cadref img {
+					z-index: 1;           
+					position: relative;   
+					width: 50px;          
+				}
+				.cadref span {
+					display: none;
+					position: absolute;  
+					width:150px;
+					margin-left:-150%;
+					bottom:-100%;
+					padding: 0 .25em;     
+					color: #eee;         
+					background: #069;     
+					opacity:0.7;
+					border-radius:10%;
+				}
+				.cadref .n {
+				  font-size:10px;
+				  display: none;
+				  position: absolute;  
+				  width:100px;
+				  height:90px;
+				  margin-left:-50%;
+				  top:-50%;
+				  padding: 0 .25em;     
+				  color: #eee;         
+				  background: #115A83;   
+				  opacity:0.7;
+				  border-radius:10%;
+				 }
+				.cadref:hover span{
+				  display:block;
+				  left: 1em;            
+				}
+				.cadref:hover .n{
+				  display:block;
+				  left:5em;
+				  height:30px;
+				}
+			</style>			
 		</head>
 		<body>
 
@@ -83,6 +82,7 @@
 				include 'note_transport.php';
 				include  'note_securite.php';
 				include  'note_loyer.php';
+				/*On calcule la note pour la première ville*/
 				$culture=noteCulture($Ville1);
 				$sport=noteSport($Ville1);
 				$crous=noteCrous($Ville1);
@@ -92,21 +92,21 @@
 				$loyer=noteLoyer($Ville1);
 				$value1=(($culture+$sport+$crous+$meteo+$transport+$securite+$loyer)/7)*10;
 				$value1+=10;
-			?>
+			?> 
 			
 			<div  class="compa">
 				<table style='box-sizing: content-box;width: 200px;height:200px;border:none;background-color:#115A83;border: 3px solid color:#9c9c9c;' class='table_formulaire'>
 					<thead>
 							<tr>
 								<th>
-									
+										<!-- On affiche l'image et le nom de la première ville-->
 										<?php echo "<a href='fiche_ville.php?Ville=".$ligne["Ville"]."' >" ?><img id="ville" src= <?php echo  $ligne["url_photo"];?> alt="Image ville"  /></a>
 										<div style="margin-left:90px;margin-right:90px;font: italic small-caps bold 33px cursive;color:#fff ;"> <?php echo $ligne["Ville"]; ?> 
 									
 								</th>
 										
 								<th>
-									
+										<!-- On affiche l'image et le nom de la deuxième ville-->
 										<?php echo "<a href='fiche_ville.php?Ville=".$ligne1["Ville"]."' >" ?><img id="ville" src= <?php echo  $ligne1["url_photo"];?> alt="Image ville"  /></a>
 										<div style="margin-left:90px;margin-right:90px;font: italic small-caps bold 33px cursive;color:#fff;"> <?php echo $ligne1["Ville"]; ?> 
 								</th>
@@ -115,7 +115,7 @@
 					<tbody>
 							<tr>
 								<th>
-										
+										<!-- Cette fonction permet d'afficher un score sur 5 étoiles pour la première ville -->
 										<?php include 'etoiles.php';
 										etoiles($value1);?>
 						
@@ -124,7 +124,7 @@
 											$note=round($note,1);
 											echo "<div class='cadref'>";
 											echo "<span class='n'>"."Note globale"."</span>";	
-											echo $note;
+											echo $note; /*On affiche la note pour la première ville  */
 											echo "</div>";
 											?>
 										</div>
@@ -135,7 +135,7 @@
 								</th> 
 								<th>
 									<?php  
-				
+										/*On calcule la note pour la deuxième ville */
 										$culture1=noteCulture($Ville2);
 										$sport1=noteSport($Ville2);
 										$crous1=noteCrous($Ville2);
@@ -146,7 +146,7 @@
 										$value2=(($culture1+$sport1+$crous1+$meteo1+$transport1+$securite1+$loyer1)/7)*10;
 										$value2+=10;
 										include 'graphe2.php';
-										etoiles($value2);?>
+										etoiles($value2);?> <!-- Cette fonction permet d'afficher un score sur 5 étoiles pour la deuxième ville -->
 
 			
 										<div style='float:left;padding-left:4em;font: italic small-caps bold 22px cursive; ' id="note">
@@ -154,7 +154,7 @@
 											$note2=round($note2,1);
 											echo "<div class='cadref'>";
 											echo "<span class='n'>"."Note globale"."</span>";
-											echo $note2;
+											echo $note2; /*On affiche la note pour la deuxième ville  */
 											echo "</div>";
 											?>
 										</div>
@@ -166,6 +166,7 @@
 							<tr>
 								<th style ='border-radius:10px; background-color:#fff;border: 3px solid #fff;'>
 									<?php
+									/*On crée et affiche le graphe pour la première ville */
 										include 'graph_ficheVille.php';
 										if(file_exists("graph_ficheVille.jpg")) {
 											unlink("graph_ficheVille.jpg");
@@ -178,6 +179,7 @@
 										if(file_exists("graph_ficheVille2.jpg")) {
 											unlink("graph_ficheVille2.jpg");
 											}
+											/*On crée et affiche le graphe pour la deuxième ville */
 										GenerateGraph2($culture1,$sport1,$crous1,$meteo1,$transport1,$securite1,$loyer1);?>
 										<img id="graph" src="graph_ficheVille2.jpg"  style='height:250 px;width:600px;border-radius:15%;padding:10px;padding-bottom:40px'/>	
 								</th>

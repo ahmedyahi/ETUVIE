@@ -8,10 +8,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <?php
     include 'bd.php';
+	/*si les champs sont vides:erreur*/
     if($_POST['username']== "" || $_POST['mdp']== ""){
 	    echo'<meta http-equiv="refresh" content="0; url=accueil2.php">';
     }
-    else{
+    else{ /*si les informations sont incorrectes:erreur*/
       $bdd = getBD();
       $rep=$bdd->query('select * from user where username=\''.$_POST['username'].'\' AND mdp=\''.$_POST['mdp'].'\'');
       if(($ligne=$rep->fetch())== ""){

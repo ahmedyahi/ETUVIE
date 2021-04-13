@@ -9,63 +9,65 @@
 			<link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 			<style>
+			<!-- Les cadres et le spans servent pour afficher une phrase au survol d'une icone -->
+			.cadreico {
+			  position: relative;   
+			  width: 100px;          
+			  overflow: hidden;     
+			  line-height: 2em;    
+			  display:inline;
+			}
+			.cadreico img {
+			  z-index: 1;           
+			  position: relative;   
+			  width: 100px;           
+			}
+			.cadreico span {
+			  display: none;
+			  position: absolute;  
+			  width:150px;
+			  left: -150%;   
+			  bottom:-200%;
+			  padding: 0 .25em;     
+			  color: #eee;          
+			  background: #069;     
+			  transition: all .5s;  
+			  opacity:0.7;
+			  border-radius:10%;
+			  z-index: 20;
+			  
+			}
+			.cadreico .vp {
+			  display: none;
+			  position: absolute;  
+			  width:80px;
+			  left: -400%;   
+			  bottom:-180%;
+			  padding: 0 .25em;     
+			  color: #eee;          
+			  background: #069;     
+			  transition: all .5s;  
+			  opacity:0.7;
+			  border-radius:10%;
+			  z-index: 20;
+			  text-align:center;           
 
-.cadreico {
-  position: relative;   
-  width: 100px;          
-  overflow: hidden;     
-  line-height: 2em;    
-  display:inline;
-}
-.cadreico img {
-  z-index: 1;           
-  position: relative;   
-  width: 100px;           
-}
-.cadreico span {
-  display: none;
-  position: absolute;  
-  width:150px;
-  left: -150%;   
-  bottom:-200%;
-  padding: 0 .25em;     
-  color: #eee;          
-  background: #069;     
-  transition: all .5s;  
-  opacity:0.7;
-  border-radius:10%;
-  z-index: 20;
-  
-}
-.cadreico .vp {
-  display: none;
-  position: absolute;  
-  width:80px;
-  left: -400%;   
-  bottom:-180%;
-  padding: 0 .25em;     
-  color: #eee;          
-  background: #069;     
-  transition: all .5s;  
-  opacity:0.7;
-  border-radius:10%;
-  z-index: 20;
-  text-align:center;           
-
-  
-}
-.cadreico:hover span{
-  display:block;
-  left: 2em;  
-}          
-</style>
+			  
+			}
+			.cadreico:hover span{
+			  display:block;
+			  left: 2em;  
+			}          
+			</style>
 		</head>
 		<body>
-			<?php include ("head2.php");	
+			<?php include ("head2.php");
+				/*Si le premier critère est vide: erreur*/			
 				if($_GET["critere1"]=="") {
 					$erreur="Veuillez choisir au moins le premier critère";
 					echo'<meta http-equiv="Refresh" content="0; formulaire_selection.php?e='.$erreur.'"/>';
 				}
+				/*Si il y deux critères égaux: erreur*/	
 				$arr=array($_GET["critere1"],$_GET["critere2"],$_GET["critere3"],$_GET["critere4"],$_GET["critere5"],$_GET["critere6"],$_GET["critere7"]);
 				$critere1=$_GET["critere1"];
 				$critere2=$_GET["critere2"];
@@ -95,9 +97,6 @@
 				include  'note_securite.php';
 				include  'note_loyer.php';
 				while($ligne=$rep->fetch()){
-					if($ligne["Ville"]=="Toulouse"){
-						$ligne=$rep->fetch();
-						}	
 					$culture=noteCulture($ligne["Ville"]);
 					$sport=noteSport($ligne["Ville"]);
 					$crous=noteCrous($ligne["Ville"]);
@@ -107,6 +106,7 @@
 					$loyer=noteLoyer($ligne["Ville"]);
 					$temp=array($culture,$transport,$crous,$securite,$sport,$loyer,$meteo);
 					$arr=array("Culture","Transports","Crous","Securité","Sport","Loyer","Meteo");
+					/*On calcule notre classement en multipliant chaque critère par un coefficient lié à sa position dans la choix de l'utilisateur*/
 					for($i=0;$i<count($arr);$i++){
 						if($critere1==$arr[$i]){
 							$temp[$i]*=7;
@@ -139,8 +139,10 @@
 					}
 					$note=$note/7;
 					$Ville=$ligne["Ville"];
-					$rep2=$bdd->query('UPDATE villes SET noteTemp=\''.$note.'\' WHERE Ville=\''.$Ville.'\''); 
+					$rep2=$bdd->query('UPDATE villes SET noteTemp=\''.$note.'\' WHERE Ville=\''.$Ville.'\''); /*On garde la nouvelle note temporaire  dans notre base des données pour ensuite faire un ORDER BY */
 					}
+					
+					/*On affiche dans la page les icones des critères selon l'ordre de choix de l'utilisateur*/
 				$rep3=$bdd->query('SELECT * from villes ORDER BY noteTemp DESC'); 
 				$ligne3=$rep3->fetch();
 				$repa=$bdd->query('SELECT * FROM `icone` WHERE criteres = \''.$critere1.'\''); 
@@ -201,6 +203,7 @@
 							</tr>
 						</thead>
 						</tbody>
+						<!-- On affiche le classement  -->
 							<?php while($ligne3=$rep3->fetch()){?>
 							<tr>
 								<td style ='font: italic small-caps bold 22px cursive;padding-bottom:15px;color:#fff' class = "nom"><?php echo $ligne3['Ville'] ?> </td>
