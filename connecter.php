@@ -10,7 +10,8 @@
     include 'bd.php';
 	/*si les champs sont vides:erreur*/
     if($_POST['username']== "" || $_POST['mdp']== ""){
-	    echo'<meta http-equiv="refresh" content="0; url=accueil2.php">';
+		 $t="Champs vides";
+		 echo '<meta http-equiv="Refresh" content="0; accueil2.php?t='.$t.'">';
     }
     else{ /*si les informations sont incorrectes:erreur*/
       $bdd = getBD();

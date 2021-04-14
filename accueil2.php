@@ -24,8 +24,8 @@
           $bdd = getBD();	
           $rep=$bdd->query('select * from villes'); 
           $rep1=$bdd->query('select * from villes'); 
-          include ("head2.php");?>	
-          <div classe ="table_formulaire">
+          include ("head2.php");?>
+		 <div>		  
             <div id="search">
               <form method="GET" action="fiche_ville.php"  autocomplete="off">
                 <select name="Ville">
@@ -48,20 +48,18 @@
               </div>
             </div>
           </div>
-		  <!--
-          <div id="le_menu">
-            <div id="exemple1">
-              <p>Definissez vos critères de selection</p>
-            </div>
-            <div id="exemple2">
-              <p>Selectionnez les villes qui correspondent le plus à vos attentes et comparez-les</p>
-            </div>
-            <div id="exemple3">
-              <p>Faites-vous une idée plus précise en lisant les avis de la communauté</p>
-            </div>
-          </div> -->
-          <div id="menu_pied">
+		  </div>
+		  
+          <div>
+			
+              <p style =" font: italic bold 30px cursive;color:#115A83;">Classer</p>
+              <p style ="font: italic bold 30px cursive;color:#115A83;">Comparer</p>
+              <p style ="font: italic bold 30px cursive;color:#115A83;">Noter</p> 
+			  <div id="menu_pied">
             <?php include ("menu.php");?></div>
+			  
+          </div> 
+         
           <?php include ("foot2.php");?>
       </body>
     </html>

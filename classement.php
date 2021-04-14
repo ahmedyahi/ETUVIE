@@ -15,34 +15,35 @@
 			  width: 100px;          
 			  overflow: hidden;     
 			  line-height: 2em;    
-			  display:inline;
+			    display:inline;
 			}
 			.cadreico img {
 			  z-index: 1;           
 			  position: relative;   
-			  width: 100px;           
+			  width: 100px;  
+				display:inline;
 			}
 			.cadreico span {
 			  display: none;
-			  position: absolute;  
+			  position: relative;  
 			  width:150px;
-			  left: -150%;   
-			  bottom:-200%;
+			  left: 100%;   
 			  padding: 0 .25em;     
 			  color: #eee;          
 			  background: #069;     
 			  transition: all .5s;  
 			  opacity:0.7;
 			  border-radius:10%;
-			  z-index: 20;
+			 
 			  
 			}
 			.cadreico .vp {
 			  display: none;
-			  position: absolute;  
+			  position: relative;
+			  height:20px;
 			  width:80px;
-			  left: -400%;   
-			  bottom:-180%;
+			  left: 800%;  
+			  top:50%;
 			  padding: 0 .25em;     
 			  color: #eee;          
 			  background: #069;     
@@ -159,19 +160,21 @@
 				$lignef=$repf->fetch();
 				$repg=$bdd->query('SELECT * FROM `icone` WHERE criteres = \''.$critere7.'\''); 
 				$ligneg=$repg->fetch();?>
+				<table>
+				<td style="position:sticky;top:0;padding-left:30px;">
 				<div id = 'profil_criteres'>
 				<div class="cadreico"> 
 				<span><?php echo $lignea["criteres"]; ?></span>
-					<img style = "width : 210px ; height : 210px ; border-radius:10% ;border: solid 5px white;" src= <?php echo  $lignea["icone"];?> alt="icone"  /> </div>
+					<img style = "width : 210px ; height : 210px ; border-radius:10% ;border: solid 5px white;display:inline;" src= <?php echo  $lignea["icone"];?> alt="icone"  /> </div>
 					<?php if($_GET["critere2"]!=""){ ?>
 							<div class="cadreico"> 
 							<span><?php echo $ligneb["criteres"]; ?></span>
-							<img style = "width : 190px ; height : 190px ; border-radius:10% ;border: solid 5px white;" src= <?php echo  $ligneb["icone"];?> alt="icone"  /> </div>
+							<img style = "width : 190px ; height : 190px ; border-radius:10% ;border: solid 5px white;display:inline;" src= <?php echo  $ligneb["icone"];?> alt="icone"  /> </div>
 							<?php } ?>
 						<?php if($_GET["critere3"]!=""){ ?>
 							<div class="cadreico"> 
 							<span><?php echo $lignec["criteres"]; ?></span>
-							<img style = "width : 170px ; height : 170px; border-radius:10% ;border: solid 5px white;" src= <?php echo  $lignec["icone"];?> alt="icone"  /> </div>
+							<img style = "width : 170px ; height : 170px; border-radius:10% ;border: solid 5px white;display:inline;" src= <?php echo  $lignec["icone"];?> alt="icone"  /> </div>
 							<?php } ?>
 						<?php if($_GET["critere4"]!=""){ ?>
 						<div class="cadreico"> 
@@ -193,8 +196,14 @@
 							<div class="cadreico"> 
 							<span><?php echo $ligneg["criteres"]; ?></span>
 							<img style = "width : 90px ; height : 90px; border-radius:10% ;border: solid 5px white;" src= <?php echo  $ligneg["icone"];?> alt="icone"  /> </div>
-							<?php } ?>
+							</br>
+							<?php } 
+							
+				?>
+							
 				</div>
+				</td>
+				<td>
 				<div class="table_formulaire">
 					<table style ='border:none' class = "classement">
 						<thead id ="entete">
@@ -216,6 +225,8 @@
 						</tbody>
 					</table>
 				</div>
+				</td>
+				</table>
 			<div id="menu_pied">
 				<?php include ("menu.php");?>
 				</div>

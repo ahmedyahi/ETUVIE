@@ -14,7 +14,12 @@
 	 	<?php include ("head2.php");
 		/*Un utilisateur qui est pas connécté ne peut pas donner des avis*/
         	if (!isset($_SESSION['users'])){
-			 	echo "<p style=margin-top:50px;text-align:center;> Pour pouvoir laisser un avis,vous devez d'abord vous inscrire au site ou vous connetre avec votre compte. </p>";
+						 echo "<div style ='padding-bottom :50px ;width : 200px ; height : 50 px;' class = 'table_formulaire';>";
+                            echo "<p style='color: red'>";?>
+                                <img class = icone style="width: 50px;height: 50px; display:block; margin-right:auto; margin-left:auto;" src = 'attention.png'/>
+                                <?php echo  "User non connécté";
+                            echo  "</p>";
+                        echo "</div>";
 			}
 		?>			
 		<?php /*Un utilisateur qui est connécté  peut donner des avis*/
@@ -50,13 +55,13 @@
 						</p>
 						<p>
 							Votre avis sur la ville : <br>
-							<TEXTAREA rows="10" name="avis" placeholder="Tapez ici votre avis">
+							<TEXTAREA rows="10" name="avis" value= "<?php if(isset($_GET['text'])) echo $_GET['text']; ?>">
 							</TEXTAREA>
 						</p>
 
 						<p>
 							
-							<input type="radio" name="respect" value="oui" >Le language de mon commentaire est approprié et respectueux 
+							<input type="radio" name="respect" value="oui"  >Le language de mon commentaire est approprié et respectueux 
 						</p>
 						<p>
 							<INPUT type="submit" value="Envoyer mon avis"/>
