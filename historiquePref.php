@@ -111,7 +111,7 @@
 								$rep3=$bdd->query('select Ville from villes where countTemp>0 order by countTemp DESC');
 								$i=0;
 								$stop=FALSE;
-								echo "Ceux qui ont aimé ".$ligne['ville']." on aimé aussi: ";
+								echo " <p style ='font: italic small-caps bold 14px cursive;padding-bottom:15px;color:#fff'> </br> Ceux qui ont aimé " .$ligne['ville']." </br> on aimé aussi: ";
 								echo "</br>";
 								while($ligne3=$rep3->fetch()){
 									if($i<2){

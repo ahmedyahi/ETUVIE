@@ -23,20 +23,20 @@
 			  display: none;
 			  position: absolute;  
 			  width:140px;
-			  margin-left:0%;
-			  bottom:0%;
+			  right:30%;
+			  top:50%;
 			  padding: 0 .25em;     
 			  color: #eee;          
 			  background: #069;     
 			  transition: all .5s; 
 			  opacity:0.7;
 			  border-radius:10%;
-			  z-index:20;
+			 
 			  
 			}
 			.cadrea:hover span{
 			  display:block;
-			  left: 2em;         
+			          
 			}
 			</style>		
 	</head>

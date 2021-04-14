@@ -1,6 +1,8 @@
 <!DOCTYPE html>
     <html>
     <head classe = "header">
+	 <link rel="shortcut icon" href="logo.ico" type="logo-icon">
+	 <link rel="icon" href="logo.ico" type="logo-icon">
     <link rel="stylesheet" href="styleH2.css" type="text/css" media="screen" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 

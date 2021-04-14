@@ -745,7 +745,7 @@ th{
 		margin-right:auto;
 	}
 	#profil_criteres{
-		display: block;
+		display:table-cell;
 		margin-left:auto;
 		margin-right:auto;
 		padding-top:20px;

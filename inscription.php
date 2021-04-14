@@ -47,20 +47,19 @@
                         <p><input type="text" name="nom"  value= "<?php if(isset($_GET['nom'])) echo $_GET['nom']; ?>" placeholder="Nom"/></p>
                        
                         <p><input type="text" name="prenom"  value= "<?php if(isset($_GET['prenom'])) echo $_GET['prenom']; ?>" placeholder="Prenom"/></p>
-                      
-                        
+                       
                         <p><input type="text" name="username"  value= "<?php if(isset($_GET['username'])) echo $_GET['username']; ?>" placeholder="Username"/></p>
                        
-                        <p><input type="text" name="phone"   value= "<?php if(isset($_GET['phone'])) echo $_GET['phone']; ?>" placeholder="Phone"/></p>
+                        <p><input type="text" name="phone"  value= "<?php if(isset($_GET['phone'])) echo $_GET['phone']; ?>" placeholder="Phone"/></p>
                        
                         <p><input type="text" name="adresse"  value= "<?php if(isset($_GET['adresse'])) echo $_GET['adresse']; ?>" placeholder="Adresse"/></p>
                        
-                        <p><input type="text" name="email" value= "<?php if(isset($_GET['email'])) echo $_GET['email']; ?>" placeholder="Email"/></p>
+                        <p><input type="text" name="email" value= "<?php if(isset($_GET['mail'])) echo $_GET['mail']; ?>" placeholder="Email"/></p>
                         
 
                         <p><input type="password" name="mdp1" value="" placeholder="Password"/></p>
                         
-                    <p><input type="password" name="mdp2"  value="" placeholder="Confirm"/></p>
+                        <p><input type="password" name="mdp2"  value="" placeholder="Confirm password"/></p>
 
              
                         <p><input type="submit" value="Valider" /></p>
